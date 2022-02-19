@@ -23,6 +23,11 @@ export const Header = () => {
           <span className="header_optionL1">Your</span>
           <span className="header_optionL2">Prime</span>
         </div>
+
+        <div className="header_option_baseket">
+          <i class="material-icons ">shopping_basket</i>
+          <span className="header_optionL2 basket_count">0</span>
+        </div>
       </div>
     </div>
   );
