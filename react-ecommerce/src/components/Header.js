@@ -1,14 +1,17 @@
 import React from "react";
 import "./Header.css";
 import logo from "../assets/logo.png";
+import { Link } from "react-router-dom";
 
 export const Header = () => {
   return (
     <div className="header">
-      <img className="header_logo" src={logo} alt="logo" />
+      <Link to="/">
+        <img className="header_logo" src={logo} alt="logo" />
+      </Link>
       <div className="header_search">
         <input type="text" className="header_searchIn" placeholder="Search" />
-        <i class="material-icons header_search_icon">search</i>
+        <i className="material-icons header_search_icon">search</i>
       </div>
       <div className="header_nav">
         <div className="header_option">
@@ -24,10 +27,12 @@ export const Header = () => {
           <span className="header_optionL2">Prime</span>
         </div>
 
-        <div className="header_option_baseket">
-          <i class="material-icons ">shopping_basket</i>
-          <span className="header_optionL2 basket_count">0</span>
-        </div>
+        <Link to="/checkout">
+          <div className="header_option_baseket">
+            <i className="material-icons ">shopping_basket</i>
+            <span className="header_optionL2 basket_count">0</span>
+          </div>
+        </Link>
       </div>
     </div>
   );
