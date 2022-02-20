@@ -7,7 +7,7 @@ export const Header = () => {
     <div className="header">
       <img className="header_logo" src={logo} alt="logo" />
       <div className="header_search">
-        <input type="text" className="header_searchIn" />
+        <input type="text" className="header_searchIn" placeholder="Search" />
         <i class="material-icons header_search_icon">search</i>
       </div>
       <div className="header_nav">

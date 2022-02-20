@@ -16,8 +16,9 @@
 
 .header_search_icon{
     padding: 5px;
-    height: 22px !important;
+    height: 30px !important;
     background-color: #fca311;
+    margin-left: 10px;
     
 }
 
