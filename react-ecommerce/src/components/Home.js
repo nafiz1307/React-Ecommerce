@@ -11,12 +11,14 @@ const Home = () => {
       </div>
       <div className="home_row">
         <Product
+          id={1}
           title="My Book Cover"
           price={19.99}
           image="https://edit.org/images/cat/book-covers-big-2019101610.jpg"
           rating={4}
         />
         <Product
+          id={2}
           title="The Dreaming Arts"
           price={31.25}
           image="https://99designs-blog.imgix.net/blog/wp-content/uploads/2017/02/attachment_80004080-e1488217702832.jpg?auto=format&q=60&fit=max&w=930"
@@ -25,6 +27,7 @@ const Home = () => {
       </div>
       <div className="home_row">
         <Product
+          id={3}
           title="Game of Thrones"
           price={59.99}
           image="https://www.creativindie.com/wp-content/uploads/2013/10/got_hc1.jpg"
@@ -37,12 +40,14 @@ const Home = () => {
           rating={4}
         />
         <Product
+          id={4}
           title="Demo Book 2"
           price={69.69}
           image="https://www.creativeparamita.com/wp-content/uploads/2018/08/hidden-castle.jpg"
           rating={5}
         />
         <Product
+          id={5}
           title="The Dark Castle"
           price={31.25}
           image="https://thebookcoverdesigner.com/wp-content/uploads/2020/08/Premade-Fantasy-Castle.jpg"
