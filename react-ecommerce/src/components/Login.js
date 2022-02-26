@@ -2,13 +2,22 @@ import React, { useState } from "react";
 import "./Login.css";
 import loginImage from "../assets/login.png";
 import { auth } from "../firebase";
+import { useHistory } from "react-router-dom";
 
 const Login = () => {
+  const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const signin = (e) => {
     e.preventDefault();
+
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then((auth) => {
+        history.push("/");
+      })
+      .catch((error) => alert(error.message));
   };
   const register = (e) => {
     e.preventDefault(e);
@@ -16,6 +25,9 @@ const Login = () => {
       .createUserWithEmailAndPassword(email, password)
       .then((auth) => {
         console.log(auth);
+        if (auth) {
+          history.push("/");
+        }
       })
       .catch((error) => alert(error.message));
   };
@@ -39,16 +51,16 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           <button
-            class="btn waves-effect waves-light login_signin"
+            className="btn waves-effect waves-light login_signin"
             type="submit"
             onClick={signin}
           >
             Sign in
-            <i class="material-icons right">send</i>
+            <i className="material-icons right">send</i>
           </button>
         </form>
         <button
-          class="waves-effect waves-light btn login_signup"
+          className="waves-effect waves-light btn login_signup"
           onClick={register}
         >
           Signup

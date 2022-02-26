@@ -3,9 +3,15 @@ import "./Header.css";
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 import { useStateValue } from './StateProvider';
+import { auth } from "../firebase";
 
 function Header (){
-  const [{basket},dispatch] = useStateValue();
+  const [{basket,user},dispatch] = useStateValue();
+  const handleAuthentication = ()=>{
+    if(user){
+      auth.signOut();
+    }
+  }
   
   return (
     <div className="header">
@@ -17,10 +23,10 @@ function Header (){
         <i className="material-icons header_search_icon">search</i>
       </div>
       <div className="header_nav">
-        <div className="header_option">
-          <span className="header_optionL1">Hello User</span>
-          <Link to="/login"> 
-            <span className="header_optionL2">Sign In</span>
+        <div className="header_option" onClick={handleAuthentication}>
+          <span className="header_optionL1">`</span>
+          <Link to={!user && "/login"}> 
+            <span className="header_optionL2">{user? 'Sign Out' : 'Sign In'}</span>
           </Link>
         </div>
         <div className="header_option">

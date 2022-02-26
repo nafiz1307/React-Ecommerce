@@ -7,7 +7,7 @@ import { useStateValue } from "./StateProvider";
 import CheckoutProduct from "./CheckoutProduct";
 
 const Checkout = () => {
-  const [{ basket }, dispatch] = useStateValue();
+  const [{ basket,user }, dispatch] = useStateValue();
   return (
     <div className="checkout">
       <div className="checkout_left">
@@ -15,6 +15,7 @@ const Checkout = () => {
           <img src={banner} alt="Checkout-Banner" className="checkout_banner" />
         </Link>
         <div>
+          <h5>{user?.email}</h5>
           <h4 className="checkout_title">Your Shopping Cart</h4>
           {basket.map((item) => (
             <CheckoutProduct
