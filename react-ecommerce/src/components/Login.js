@@ -1,17 +1,24 @@
 import React, { useState } from "react";
 import "./Login.css";
 import loginImage from "../assets/login.png";
+import { auth } from "../firebase";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const signin = (e)=>{
-      e.preventDefault();
-  }
-  const register =(e)=>{
-      e.preventDefault();
-  }
+  const signin = (e) => {
+    e.preventDefault();
+  };
+  const register = (e) => {
+    e.preventDefault(e);
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((auth) => {
+        console.log(auth);
+      })
+      .catch((error) => alert(error.message));
+  };
 
   return (
     <div className="login">
@@ -40,7 +47,10 @@ const Login = () => {
             <i class="material-icons right">send</i>
           </button>
         </form>
-        <button class="waves-effect waves-light btn login_signup" onClick={register}>
+        <button
+          class="waves-effect waves-light btn login_signup"
+          onClick={register}
+        >
           Signup
         </button>
       </div>
