@@ -2,17 +2,17 @@ import React from "react";
 import "./Header.css";
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
-import { useStateValue } from './StateProvider';
+import { useStateValue } from "./StateProvider";
 import { auth } from "../firebase";
 
-function Header (){
-  const [{basket,user},dispatch] = useStateValue();
-  const handleAuthentication = ()=>{
-    if(user){
+function Header() {
+  const [{ basket, user }, dispatch] = useStateValue();
+  const handleAuthentication = () => {
+    if (user) {
       auth.signOut();
     }
-  }
-  
+  };
+
   return (
     <div className="header">
       <Link to="/">
@@ -24,9 +24,14 @@ function Header (){
       </div>
       <div className="header_nav">
         <div className="header_option" onClick={handleAuthentication}>
-          <span className="header_optionL1">`</span>
-          <Link to={!user && "/login"}> 
-            <span className="header_optionL2">{user? 'Sign Out' : 'Sign In'}</span>
+          <span className="header_optionL1">
+            {console.log(user?.currentUser.email)}
+            {user?.currentUser.email}
+          </span>
+          <Link to={!user && "/login"}>
+            <span className="header_optionL2">
+              {user ? "Sign Out" : "Sign In"}
+            </span>
           </Link>
         </div>
         <div className="header_option">
@@ -49,6 +54,6 @@ function Header (){
       </div>
     </div>
   );
-};
+}
 
 export default Header;

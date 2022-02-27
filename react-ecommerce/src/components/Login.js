@@ -25,6 +25,7 @@ const Login = () => {
       .createUserWithEmailAndPassword(email, password)
       .then((auth) => {
         console.log(auth);
+        alert("User Successfully Created")
         if (auth) {
           history.push("/");
         }
